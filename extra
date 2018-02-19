@@ -1,0 +1,23 @@
+// <View style={{flexDirection: 'row', paddingTop: 10}}>
+//   <View style={{flexDirection: 'column', paddingBottom: 10}}>
+//     <Image source={require('./assets/miley.jpg')} style={styles.image}/>
+//     <View style={{alignItems: 'center'}}>
+//       <Text style={{fontSize: 15, fontWeight: 'bold', color: 'white', paddingTop: 5}}>Miley Cyrus</Text>
+//       <Text style={{fontSize: 10, color: 'white', paddingTop: 2}}>Bangerz</Text>
+//     </View>
+//   </View>
+//   <View style={{flexDirection: 'column', paddingBottom: 10}}>
+//     <Image source={require('./assets/post.jpg')} style={styles.image}/>
+//     <View style={{alignItems: 'center'}}>
+//       <Text style={{fontSize: 15, fontWeight: 'bold', color: 'white', paddingTop: 5}}>Post Malone</Text>
+//       <Text style={{fontSize: 10, color: 'white', paddingTop: 2}}>Stoney</Text>
+//     </View>
+//   </View>
+//   <View style={{flexDirection: 'column', paddingBottom: 10}}>
+//     <Image source={require('./assets/beatles.jpg')} style={styles.image}/>
+//     <View style={{alignItems: 'center'}}>
+//       <Text style={{fontSize: 15, fontWeight: 'bold', color: 'white', paddingTop: 5}}>The Beatles</Text>
+//       <Text style={{fontSize: 10, color: 'white', paddingTop: 2}}>Abbey Road</Text>
+//     </View>
+//   </View>
+// </View>

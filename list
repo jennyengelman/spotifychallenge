@@ -1,0 +1,14 @@
+render() {
+  optionsList = [
+    {key: 'Your Daily Mix'},
+    {key: 'Playlists'},
+  ]
+  options = optionsList.map(item) => {
+    return (
+      <View style={styles.option_container}>
+        <Text style={styles.option_text}>{item.key}</Text>
+      </View>
+    )
+  })
+  return...
+}

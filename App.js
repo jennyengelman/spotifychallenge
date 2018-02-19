@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, TextInput, FlatList, StyleSheet, Image, ScrollView } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-export default class SpotifyPage extends React.Component {
+export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -113,6 +114,134 @@ export default class SpotifyPage extends React.Component {
     );
   }
 }
+class AlbumPage extends React.Component {
+  return (
+    <View style={styles.container}>
+        <View style={styles.home}>
+          <Text style={styles.texthome}>Album</Text>
+        </View>
+      <ScrollView>
+        <View>
+          <View style={{flex: 5, alignItems: 'center'}}>
+            <Text style={styles.header}>Made For You</Text>
+            <View style={{paddingBottom: 10, paddingTop: 5}}>
+              <Text style={{color: 'white', fontSize: 15, paddingBottom: 7}}>Get better recommendations the more you listen.</Text>
+            </View>
+            <FlatList
+              horizontal={true}
+              data={[
+                {key: 'Discover Weekly', pic: require('./assets/discover.jpeg')},
+                {key: 'Kanye West', sub: 'Heartless', pic: require('./assets/kanye.jpg')},
+                {key: 'The Beatles', sub: 'Abbey Road', pic: require('./assets/beatles.jpg')},
+                {key: 'Justin Bieber', sub: 'Purpose', pic: require('./assets/justin.png')},
+              ]}
+              renderItem={({item}) => (
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 5, paddingBottom: 5}}>
+                      <Image source={item.pic} style={styles.image}/>
+                    </View>
+                    <View style={{flexDirection: 'column', paddingTop: 7, paddingLeft: 10}}>
+                      <Text style={styles.artist}>{item.key}</Text>
+                      <Text style={styles.album}>{item.sub}</Text>
+                    </View>
+                  </View>
+                </View>
+              )}
+            />
+            <View style={{paddingBottom: 10}}>
+              <Text style={styles.header}>Recently Played</Text>
+            </View>
+            <FlatList
+              horizontal={true}
+              data={[
+                {key: 'Bruce Springsteen', sub: 'Born in the USA', pic: require('./assets/bruce.jpg')},
+                {key: 'Ed Sheeran', sub: 'Divide', pic: require('./assets/ed.jpg')},
+                {key: 'Miley Cyrus', sub: 'Bangerz', pic: require('./assets/miley.jpg')},
+                {key: 'Post Malone', sub: 'Stoney', pic: require('./assets/post.jpg')},
+              ]}
+              renderItem={({item}) => (
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 5, paddingBottom: 5}}>
+                      <Image source={item.pic} style={styles.image}/>
+                    </View>
+                    <View style={{flexDirection: 'column', paddingTop: 7, paddingLeft: 10}}>
+                      <Text style={styles.artist}>{item.key}</Text>
+                      <Text style={styles.album}>{item.sub}</Text>
+                    </View>
+                  </View>
+                </View>
+              )}
+            />
+            <Text style={styles.header}>Pop</Text>
+            <FlatList
+              horizontal={true}
+              data={[
+                {key: "Today's Top Hits", sub: '18,990,291 FOLLOWERS', pic: require('./assets/hits.jpeg')},
+                {key: "Justin Timberlake", sub: 'The 20/20 Experience', pic: require('./assets/timberlake.jpg')},
+                {key: "Guilty Pleasures", sub: '401,406 FOLLOWERS', pic: require('./assets/guilty.jpeg')},
+              ]}
+              renderItem={({item}) => (
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 5, paddingBottom: 5}}>
+                      <Image source={item.pic} style={styles.image}/>
+                    </View>
+                    <View style={{flexDirection: 'column', paddingTop: 7, paddingLeft: 10, paddingBottom: 5}}>
+                      <Text style={styles.artist}>{item.key}</Text>
+                      <Text style={styles.album}>{item.sub}</Text>
+                    </View>
+                  </View>
+                </View>
+              )}
+            />
+          </View>
+        </View>
+      </ScrollView>
+      <View style={styles.footer}>
+        <View>
+          <Image source={require('./assets/home.png')} style={styles.icon}/>
+          <Text style={{fontSize: 10, color: 'white', paddingTop: 3}}>Home</Text>
+        </View>
+        <View>
+          <Image source={require('./assets/browse.png')} style={styles.icon}/>
+          <Text style={{fontSize: 10, color: 'white', paddingTop: 3}}>Browse</Text>
+        </View>
+        <View>
+          <Image source={require('./assets/search.png')} style={styles.icon}/>
+          <Text style={{fontSize: 10, color: 'white', paddingTop: 3}}>Search</Text>
+        </View>
+        <View>
+          <Image source={require('./assets/radio.png')} style={styles.icon}/>
+          <Text style={{fontSize: 10, color: 'white', paddingTop: 3}}>Radio</Text>
+        </View>
+        <View>
+          <Image source={require('./assets/library.png')} style={styles.icon}/>
+          <Text style={{fontSize: 10, color: 'white', paddingTop: 3}}>Your Library</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+class SongPage extends React.Component {
+
+}
+
+const App = StackNavigator(
+  {
+    Home: { screen: HomeScreen },
+    // Album: {
+    //   screen: AlbumPage,
+    // },
+    // Song: {
+    //   screen: SongPage,
+    // },
+  },
+  // {
+  //   initialRouteName: 'Home',
+  // }
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -172,4 +301,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('spotify-first', () => SpotifyPage);
+AppRegistry.registerComponent('spotify-first', () => HomeScreen);
